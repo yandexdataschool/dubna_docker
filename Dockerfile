@@ -16,9 +16,9 @@ RUN cd /root/caffe-master && make -j4 all
 RUN cd /root/caffe-master && make -j4 test && make -j4 runtest
 RUN cd /root/caffe-master && make -j4 pycaffe
 RUN /root/miniconda/envs/rep_py2/bin/conda install -n rep_py2 scikit-image protobuf
+RUN source /root/miniconda/envs/rep_py2/bin/activate rep_py2; pip install lmdb
 RUN ln -s /root/caffe-master/python/caffe /root/miniconda/envs/rep_py2/lib/python2.7/site-packages/
 RUN sed -i '1i ln /dev/null /dev/raw1394' /root/start.sh
 #RUN /root/miniconda/envs/rep_py2/bin/conda install -n rep_py2 scipy
-#RUN source /root/miniconda/envs/rep_py2/bin/activate rep_py2; pip install -r https://raw.githubusercontent.com/Lasagne/Lasagne/master/requirements.txt
 #RUN source /root/miniconda/envs/rep_py2/bin/activate rep_py2; pip install https://github.com/Lasagne/Lasagne/archive/master.zip
 #RUN source /root/miniconda/envs/rep_py2/bin/activate rep_py2; pip install git+https://github.com/dnouri/nolearn.git
